@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6
+    container_name: the-flex-mongo
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_DATABASE: the-flex
+    volumes:
+      - mongodb_data:/data/db
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: the-flex-server
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: development
+      MONGODB_URI: mongodb://mongodb:27017/the-flex
+      JWT_SECRET: your_jwt_secret
+    depends_on:
+      - mongodb
+    volumes:
+      - ./server:/app/server
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: the-flex-client
+    ports:
+      - '5173:5173'
+    environment:
+      VITE_API_URL: http://localhost:3000
+    depends_on:
+      - server
+    volumes:
+      - ./client:/app/client
+
+volumes:
+  mongodb_data:
