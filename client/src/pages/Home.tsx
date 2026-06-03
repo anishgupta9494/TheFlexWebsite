@@ -97,55 +97,72 @@ export const Home = () => {
   };
 
   return (
-    <div className="overflow-hidden">
-      {/* Hero Section - Orange */}
-      <section className="relative bg-gradient-to-b from-orange-600 to-orange-500 text-white py-20 px-4 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-15">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-orange-700 rounded-full blur-3xl"></div>
-        </div>
+    <div className="overflow-hidden bg-gray-950">
+      {/* Hero Section */}
+      <section className="relative min-h-[calc(100vh-64px)] overflow-hidden px-4 py-16 text-white md:py-24">
+        <img
+          src="/images/malad-west/malad-west-4.webp"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/88 to-gray-950/55"></div>
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-gray-950 to-transparent"></div>
 
-        <div className="max-w-5xl mx-auto relative z-10 text-center">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <Dumbbell className="w-12 h-12" />
-            <span className="text-sm font-semibold tracking-widest uppercase opacity-95">
-              Welcome to The Flex
-            </span>
+        <div className="relative z-10 mx-auto grid min-h-[calc(100vh-220px)] max-w-7xl items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,0.55fr)]">
+          <div>
+            <div className="mb-6 flex items-center gap-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-300">
+              <Dumbbell className="h-8 w-8" />
+              <span>Mumbai Training Club</span>
+            </div>
+            <div className="mb-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+              <img
+                src="/images/logo.png"
+                alt="The Flex Logo"
+                className="h-32 w-32 shrink-0 rounded-full bg-white object-contain p-3 shadow-2xl ring-4 ring-white/40 md:h-[200px] md:w-[200px]"
+              />
+              <h1 className="max-w-3xl text-5xl font-black leading-none md:text-7xl">
+                Experience Our Facilities
+              </h1>
+            </div>
+            <p className="max-w-3xl text-lg leading-relaxed text-gray-200 md:text-xl">
+              State-of-the-art fitness facilities across Malad East and Malad West
+            </p>
+            <div className="mt-8 border-l-4 border-orange-500 pl-5">
+              <p className="text-lg font-bold uppercase tracking-[0.18em] text-orange-200 md:text-2xl">
+                Your Complete Fitness Destination
+              </p>
+              <p className="mt-3 text-base font-semibold text-white md:text-xl">
+                Cardio + Strength | Steam Room
+              </p>
+              <p className="mt-2 text-base font-semibold text-white md:text-xl">
+                Yoga | Zumba | Karate | Functional Training
+              </p>
+            </div>
           </div>
-          <div className="mb-6 flex flex-col items-center justify-center gap-6 md:flex-row md:text-left">
-            <img
-              src="/images/logo.png"
-              alt="The Flex Logo"
-              className="h-32 w-32 shrink-0 rounded-full bg-white object-contain p-3 shadow-2xl ring-4 ring-white/40 md:h-[200px] md:w-[200px]"
-            />
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              Experience Our Facilities
-            </h1>
-          </div>
-          <p className="text-lg md:text-xl opacity-95 max-w-3xl mx-auto leading-relaxed">
-            State-of-the-art fitness facilities across Malad East and Malad West
-          </p>
-          <div className="mx-auto mt-8 max-w-4xl rounded-lg bg-white/15 px-5 py-5 text-center ring-1 ring-white/25 backdrop-blur-sm">
-            <p className="text-lg font-bold uppercase tracking-[0.18em] md:text-2xl">
-              Your Complete Fitness Destination
-            </p>
-            <p className="mt-3 text-base font-semibold md:text-xl">
-              Cardio + Strength | Steam Room
-            </p>
-            <p className="mt-2 text-base font-semibold md:text-xl">
-              Yoga • Zumba • Karate • Functional Training
-            </p>
+
+          <div className="rounded-lg border border-white/15 bg-black/45 p-5 shadow-2xl backdrop-blur-md">
+            {['Strength Zone', 'Cardio Floor', 'Steam Room', 'Group Classes'].map((feature) => (
+              <div
+                key={feature}
+                className="flex items-center justify-between border-b border-white/10 py-4 last:border-b-0"
+              >
+                <span className="text-sm font-semibold uppercase tracking-[0.16em] text-gray-300">
+                  {feature}
+                </span>
+                <span className="h-2 w-8 bg-orange-500" aria-hidden="true"></span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Location Gallery Section */}
-      <section className="bg-gray-950 py-20 md:py-28 px-4 text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Gym Gallery</h2>
-            <div className="w-20 h-1 bg-orange-600 mx-auto mb-6"></div>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
+      <section className="bg-gray-950 px-4 py-20 text-white md:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-4xl font-black md:text-5xl">Our Gym Gallery</h2>
+            <div className="mx-auto mb-6 h-1 w-20 bg-orange-600"></div>
+            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-300">
               Explore both The Flex locations and find the training floor closest to you
             </p>
           </div>
@@ -158,7 +175,7 @@ export const Home = () => {
               return (
                 <article
                   key={location.id}
-                  className="grid overflow-hidden rounded-lg bg-white text-gray-950 shadow-2xl lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]"
+                  className="grid overflow-hidden rounded-lg border border-white/10 bg-gray-900 text-white shadow-2xl lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]"
                 >
                   <div className="relative min-h-[420px] bg-gray-900 sm:min-h-[520px]">
                     <img
@@ -184,10 +201,10 @@ export const Home = () => {
                       <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-orange-600">
                         Location Gallery
                       </p>
-                      <h3 className="mb-4 text-3xl font-bold text-gray-950 md:text-4xl">
+                      <h3 className="mb-4 text-3xl font-black text-white md:text-4xl">
                         {location.name}
                       </h3>
-                      <p className="text-base leading-relaxed text-gray-600">{location.description}</p>
+                      <p className="text-base leading-relaxed text-gray-300">{location.description}</p>
                     </div>
 
                     <div className="space-y-4">
@@ -195,7 +212,7 @@ export const Home = () => {
                         href={getGoogleMapsUrl(location.address)}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex gap-3 text-gray-700 hover:text-orange-700"
+                        className="flex gap-3 text-gray-300 hover:text-orange-300"
                       >
                         <MapPin className="mt-1 h-5 w-5 shrink-0 text-orange-600" aria-hidden="true" />
                         <span className="text-sm leading-relaxed md:text-base">{location.address}</span>
@@ -204,14 +221,14 @@ export const Home = () => {
                         href={location.instagramUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-3 text-sm font-semibold text-gray-900 hover:text-orange-700 md:text-base"
+                        className="flex items-center gap-3 text-sm font-semibold text-gray-200 hover:text-orange-300 md:text-base"
                       >
                         <Instagram className="h-5 w-5 text-orange-600" aria-hidden="true" />
                         Instagram
                       </a>
                       <a
                         href={`tel:${CONTACT_NUMBER}`}
-                        className="flex items-center gap-3 text-sm font-semibold text-gray-900 hover:text-orange-700 md:text-base"
+                        className="flex items-center gap-3 text-sm font-semibold text-gray-200 hover:text-orange-300 md:text-base"
                       >
                         <Phone className="h-5 w-5 text-orange-600" aria-hidden="true" />
                         {CONTACT_NUMBER}
@@ -227,7 +244,7 @@ export const Home = () => {
                             key={image.src}
                             type="button"
                             onClick={() => showImage(location, imageIndex)}
-                            className={`h-16 overflow-hidden rounded-md border-2 focus:outline-none focus:ring-2 focus:ring-orange-600 ${
+                            className={`h-16 overflow-hidden rounded-md border-2 opacity-85 focus:outline-none focus:ring-2 focus:ring-orange-600 hover:opacity-100 ${
                               isActive ? 'border-orange-600' : 'border-transparent'
                             }`}
                             aria-label={`Show ${location.name} photo ${imageIndex + 1}`}
@@ -246,18 +263,20 @@ export const Home = () => {
       </section>
 
       {/* Welcome Info Section - Orange Accent */}
-      <section className="bg-white py-20 md:py-32 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Join The Flex Community</h2>
-            <div className="w-20 h-1 bg-orange-600 mx-auto mb-8"></div>
-            <p className="text-gray-700 text-lg mb-12 leading-relaxed">
+      <section className="bg-gray-100 px-4 py-20 md:py-28">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[0.85fr_1.15fr]">
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-orange-600">Train With Intent</p>
+            <h2 className="text-4xl font-black leading-tight text-gray-950 md:text-5xl">Join The Flex Community</h2>
+          </div>
+          <div className="border-l-4 border-orange-600 pl-6">
+            <p className="text-lg leading-relaxed text-gray-700">
               Welcome to The Flex - your premier fitness destination. Whether you're a beginner or an experienced athlete, 
               our world-class facilities and supportive community are here to help you achieve your fitness goals and transform your life.
             </p>
-            <div className="bg-gradient-to-r from-orange-50 to-orange-100 border-l-8 border-orange-600 p-8 rounded-xl shadow-lg">
-              <p className="text-orange-900 font-semibold text-lg leading-relaxed">
-                ✨ Discover world-class training equipment, expert coaching, and a community dedicated to your success
+            <div className="mt-6">
+              <p className="text-lg font-bold leading-relaxed text-gray-950">
+                Discover world-class training equipment, expert coaching, and a community dedicated to your success.
               </p>
             </div>
           </div>
@@ -265,25 +284,22 @@ export const Home = () => {
       </section>
 
       {/* CTA Section - Orange */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-500 text-white py-16 md:py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Fitness?</h2>
-          <p className="text-lg opacity-95 mb-8">
+      <section className="bg-orange-600 px-4 py-16 text-white md:py-20">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="mb-6 text-3xl font-black md:text-4xl">Ready to Transform Your Fitness?</h2>
+          <p className="mb-8 text-lg opacity-95">
             Join our community and start your fitness journey today
           </p>
           <a
             href={`tel:${CONTACT_NUMBER}`}
-            className="mx-auto mb-8 inline-flex items-center justify-center gap-3 rounded-lg bg-orange-700/40 px-5 py-3 text-lg font-semibold ring-1 ring-white/30 hover:bg-orange-700/60"
+            className="mx-auto inline-flex items-center justify-center gap-3 rounded-full bg-gray-950 px-6 py-3 text-lg font-bold text-white shadow-xl hover:bg-gray-900"
           >
             <Phone className="h-5 w-5" aria-hidden="true" />
             {CONTACT_NUMBER}
           </a>
-          <br />
-          <button className="bg-white text-orange-600 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-200 text-lg">
-            Get Started Now
-          </button>
         </div>
       </section>
     </div>
   );
 };
+
