@@ -1,4 +1,4 @@
-import { ChevronRight, Dumbbell, Instagram, MapPin, Phone } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Dumbbell, Instagram, MapPin, Phone } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const CONTACT_NUMBER = '9773115684';
@@ -77,7 +77,7 @@ export const Home = () => {
 
         return nextIndexes;
       });
-    }, 4500);
+    }, 5625);
 
     return () => window.clearInterval(rotationTimer);
   }, []);
@@ -86,6 +86,13 @@ export const Home = () => {
     setActiveIndexes((currentIndexes) => ({
       ...currentIndexes,
       [location.id]: ((currentIndexes[location.id] ?? 0) + 1) % location.images.length,
+    }));
+  };
+
+  const showPreviousImage = (location: LocationGallery) => {
+    setActiveIndexes((currentIndexes) => ({
+      ...currentIndexes,
+      [location.id]: ((currentIndexes[location.id] ?? 0) - 1 + location.images.length) % location.images.length,
     }));
   };
 
@@ -116,9 +123,9 @@ export const Home = () => {
             </div>
             <div className="mb-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
               <img
-                src="/images/logo.png"
+                src="/images/logo.jpg"
                 alt="The Flex Logo"
-                className="h-32 w-32 shrink-0 rounded-full bg-white object-contain p-3 shadow-2xl ring-4 ring-white/40 md:h-[200px] md:w-[200px]"
+                className="h-32 w-32 shrink-0 rounded-full bg-black object-cover shadow-2xl ring-4 ring-white/40 md:h-[200px] md:w-[200px]"
               />
               <h1 className="max-w-3xl text-5xl font-black leading-none md:text-7xl">
                 Experience Our Facilities
@@ -186,6 +193,14 @@ export const Home = () => {
                     <div className="absolute left-4 top-4 rounded-md bg-black/70 px-3 py-2 text-sm font-semibold text-white">
                       {activeIndex + 1} / {location.images.length}
                     </div>
+                    <button
+                      type="button"
+                      onClick={() => showPreviousImage(location)}
+                      className="absolute bottom-4 left-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-black/70 text-white shadow-lg ring-1 ring-white/20 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600"
+                      aria-label={`Show previous ${location.name} photo`}
+                    >
+                      <ChevronLeft className="h-6 w-6" aria-hidden="true" />
+                    </button>
                     <button
                       type="button"
                       onClick={() => showNextImage(location)}

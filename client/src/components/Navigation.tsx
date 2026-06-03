@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Instagram, LogOut, Menu, Phone, X } from 'lucide-react';
+import { LogOut, Menu, Phone, X } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { useState } from 'react';
 
@@ -18,15 +18,6 @@ export const Navigation = () => {
         </div>
 
         <div className="hidden items-center gap-6 md:flex">
-          <a
-            href="https://www.instagram.com/theflexmaladwest/"
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2 text-sm font-semibold text-gray-200 hover:text-orange-300"
-          >
-            <Instagram size={18} />
-            Instagram
-          </a>
           <a
             href={`tel:${CONTACT_NUMBER}`}
             className="flex items-center gap-2 rounded-full bg-orange-600 px-4 py-2 text-sm font-bold text-white hover:bg-orange-500"
@@ -68,15 +59,6 @@ export const Navigation = () => {
 
       {isOpen && (
         <div className="mt-4 space-y-3 border-t border-white/10 pt-4 md:hidden">
-          <a
-            href="https://www.instagram.com/theflexmaladwest/"
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2 py-2 font-semibold text-gray-100 hover:text-orange-300"
-          >
-            <Instagram size={18} />
-            Instagram
-          </a>
           <a
             href={`tel:${CONTACT_NUMBER}`}
             className="flex items-center gap-2 py-2 font-semibold text-gray-100 hover:text-orange-300"
