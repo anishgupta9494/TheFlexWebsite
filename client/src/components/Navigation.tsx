@@ -9,12 +9,7 @@ export const Navigation = () => {
 
   return (
     <nav className="bg-gradient-to-r from-orange-600 to-orange-500 text-white py-4 px-6 shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <img src="/images/logo.png" alt="The Flex Logo" className="h-10 w-auto" />
-        </Link>
-
+      <div className="max-w-7xl mx-auto flex justify-end items-center">
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           <Link to="/" className="hover:text-orange-100 transition-colors font-semibold">

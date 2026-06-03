@@ -1,7 +1,7 @@
 import { ChevronRight, Dumbbell, Instagram, MapPin, Phone } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-const CONTACT_NUMBER = '9326126576';
+const CONTACT_NUMBER = '9773115684';
 const getGoogleMapsUrl = (address: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
@@ -116,7 +116,7 @@ export const Home = () => {
             <img
               src="/images/logo.png"
               alt="The Flex Logo"
-              className="h-32 w-auto shrink-0 md:h-[200px]"
+              className="h-32 w-32 shrink-0 rounded-full bg-white object-contain p-3 shadow-2xl ring-4 ring-white/40 md:h-[200px] md:w-[200px]"
             />
             <h1 className="text-5xl md:text-7xl font-bold leading-tight">
               Experience Our Facilities
@@ -125,6 +125,17 @@ export const Home = () => {
           <p className="text-lg md:text-xl opacity-95 max-w-3xl mx-auto leading-relaxed">
             State-of-the-art fitness facilities across Malad East and Malad West
           </p>
+          <div className="mx-auto mt-8 max-w-4xl rounded-lg bg-white/15 px-5 py-5 text-center ring-1 ring-white/25 backdrop-blur-sm">
+            <p className="text-lg font-bold uppercase tracking-[0.18em] md:text-2xl">
+              Your Complete Fitness Destination
+            </p>
+            <p className="mt-3 text-base font-semibold md:text-xl">
+              Cardio + Strength | Steam Room
+            </p>
+            <p className="mt-2 text-base font-semibold md:text-xl">
+              Yoga • Zumba • Karate • Functional Training
+            </p>
+          </div>
         </div>
       </section>
 
