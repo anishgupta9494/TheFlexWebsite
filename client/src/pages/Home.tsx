@@ -2,6 +2,8 @@ import { ChevronRight, Dumbbell, Instagram, MapPin, Phone } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const CONTACT_NUMBER = '9326126576';
+const getGoogleMapsUrl = (address: string) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
 type GalleryImage = {
   src: string;
@@ -110,9 +112,16 @@ export const Home = () => {
               Welcome to The Flex
             </span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Experience Our Facilities
-          </h1>
+          <div className="mb-6 flex flex-col items-center justify-center gap-6 md:flex-row md:text-left">
+            <img
+              src="/images/logo.png"
+              alt="The Flex Logo"
+              className="h-32 w-auto shrink-0 md:h-[200px]"
+            />
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              Experience Our Facilities
+            </h1>
+          </div>
           <p className="text-lg md:text-xl opacity-95 max-w-3xl mx-auto leading-relaxed">
             State-of-the-art fitness facilities across Malad East and Malad West
           </p>
@@ -171,10 +180,15 @@ export const Home = () => {
                     </div>
 
                     <div className="space-y-4">
-                      <div className="flex gap-3 text-gray-700">
+                      <a
+                        href={getGoogleMapsUrl(location.address)}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex gap-3 text-gray-700 hover:text-orange-700"
+                      >
                         <MapPin className="mt-1 h-5 w-5 shrink-0 text-orange-600" aria-hidden="true" />
-                        <p className="text-sm leading-relaxed md:text-base">{location.address}</p>
-                      </div>
+                        <span className="text-sm leading-relaxed md:text-base">{location.address}</span>
+                      </a>
                       <a
                         href={location.instagramUrl}
                         target="_blank"
@@ -246,6 +260,14 @@ export const Home = () => {
           <p className="text-lg opacity-95 mb-8">
             Join our community and start your fitness journey today
           </p>
+          <a
+            href={`tel:${CONTACT_NUMBER}`}
+            className="mx-auto mb-8 inline-flex items-center justify-center gap-3 rounded-lg bg-orange-700/40 px-5 py-3 text-lg font-semibold ring-1 ring-white/30 hover:bg-orange-700/60"
+          >
+            <Phone className="h-5 w-5" aria-hidden="true" />
+            {CONTACT_NUMBER}
+          </a>
+          <br />
           <button className="bg-white text-orange-600 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-200 text-lg">
             Get Started Now
           </button>
