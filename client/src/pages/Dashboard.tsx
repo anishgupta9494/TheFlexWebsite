@@ -127,7 +127,7 @@ export const Dashboard = () => {
                   fill="#8884d8"
                   dataKey="value"
                 >
-                  {exerciseData.map((entry, index) => (
+                  {exerciseData.map((_, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
